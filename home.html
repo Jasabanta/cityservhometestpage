@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from cityservcompany.com/customer/home.aspx by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Apr 2022 05:38:09 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <link href="../../cdn.jsdelivr.net/npm/bootstrap%405.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="owl.carousel.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link href='https://fonts.googleapis.com/css?family=Secular One' rel='stylesheet'> 
+<link href='https://fonts.googleapis.com/css?family=Heebo' rel='stylesheet'>  -->
+  <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="../../code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../code.jquery.com/jquery-1.10.2.js"></script>
+  <script type="text/javascript" src="../../code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="owl.carousel.js"></script>
+  <script src="../../maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script type="text/javascript">
+    $(function () {
+
+      var me = getUrlVars()["rfd"];
+      SearchText();
+
+
+      $.ajax({
+        type: "POST",
+        url: "home.aspx/getcats",
+        data: '{name: "noname" }',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: OnSuccess,
+        failure: function (response) {
+          alert(response.d);
+        }
+      });
+
+
+
+      function OnSuccess(response) {
+        //$(".addsr").closest('form').find("input[type=text], textarea").val("");
+        //alert("Created Service Successfully");  <div class="col-lg-3 col-3 main-icon4">
+
+
+
+
+
+
+
+        $('#catdtl').html("");
+        $.each(response, function (index, item) {
+          for (var i in item) {
+            if (me != "") {
+              $("#catdtl").append(
+                '<div class="col-lg-3 col-3 main-icon4"> <div class="icon-images"><a href="subcategory.aspx?cubd=' +
+                item[i].split('*')[0] + '&rfd=' + me + '"><img src="' + item[i].split('*')[2] +
+                '" alt="icon1"> <p>"' + item[i].split('*')[1] + '"</p></a> </div>  </div>');
+            } else {
+              $("#catdtl").append(
+                '<div class="col-lg-3 col-3 main-icon4"> <div class="icon-images"><a href="subcategory.aspx?cubd=' +
+                item[i].split('*')[0] + '"><img src="' + item[i].split('*')[2] + '" alt="icon1"> <p>"' + item[
+                  i].split('*')[1] + '"</p></a> </div>  </div>');
+            }
+
+
+            //                        if (item[i].split('*')[11] == "Active") {
+
+            //                            $('#catdtl').append(' <tr style="background-color:#f7f7f7;"><td class="py-1"><img onclick="imgzm(this)" src="' + item[i].split('*')[0] + '" alt="image"> </td><td>"' + item[i].split('*')[12] + '"</td><td> ' + item[i].split('*')[1] + '</td>   <td> ' + item[i].split('*')[5] + '</td>   <td><i class="mdi mdi-phone"></i>&nbsp;<a href="tel:+' + item[i].split('*')[3] + '">' + item[i].split('*')[3] + '</a> </td> <td> ' + item[i].split('*')[2] + '</td><td> ' + item[i].split('*')[7] + '</td> <td>' + item[i].split('*')[6] + '</td> <td>' + item[i].split('*')[4] + '</td><td><span class="spnst" \
+            //style="padding:5px 15px; border-radius: 15px;    box-shadow: 1px 0px 0px 5px rgb(56 54 54 / 11%); background-color:green;color:white;">' + item[i].split('*')[11] + '<span></td> <td> <button type="button" style=" padding: 8px;margin: 2px;background-color: #2196f3; border: solid 1px #06638d;" class="btnrj btn btn-primary" onclick="btnappr(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-account-check"></i><span class="tooltiptext">Approve / Rejoin</span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: #4c4c4c;border: solid 1px #075da1;" class="btnds btn btn-primary" onclick="btndis(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-account-off"></i><span class="tooltiptext">Dismiss</span></button><button type="button" style=" padding: 8px;margin: 2px;" class="btnhs btn btn-primary" onclick="btnhis(' + item[i].split('*')[10] + ')"><i class="mdi mdi-animation"></i><span class="tooltiptext">Service History</span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: #4caf50; border: solid 1px #028507;" class="btnwl btn btn-primary" onclick="btnwl(' + item[i].split('*')[10] + ')"><i class="mdi mdi-book-open-page-variant"></i><span class="tooltiptext">Wallet</span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: red;border: solid 1px #cb0505;" class="btndl btn btn-primary" onclick="btndel(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-delete-forever"></i><span class="tooltiptext">Remove </span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: #3f51b5;border: solid 1px #040f50;" class="btndl btn btn-primary" onclick="btnedt(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-border-color"></i><span class="tooltiptext">Edit</span></button></td> </tr>');
+
+            //                        }
+            //                        else {
+            //                            $('#catdtl').append(' <tr style="background-color:#d70000;"><td class="py-1"><img onclick="imgzm(this)" src="' + item[i].split('*')[0] + '" alt="image"> <td>"' + item[i].split('*')[12] + '"</td></td><td> ' + item[i].split('*')[1] + '</td>   <td> ' + item[i].split('*')[5] + '</td>   <td><i class="mdi mdi-phone"></i>&nbsp;<a href="tel:+' + item[i].split('*')[3] + '">' + item[i].split('*')[3] + '</a> </td> <td> ' + item[i].split('*')[2] + '</td><td> ' + item[i].split('*')[7] + '</td> <td>' + item[i].split('*')[6] + '</td> <td>' + item[i].split('*')[4] + '</td><td><span class="spnbl" style="padding:5px 15px; border-radius: 15px;    box-shadow: 1px 0px 0px 5px rgb(56 54 54 / 11%); background-color:black;color:white;">' + item[i].split('*')[11] + '<span></td> <td> <button type="button" style=" padding: 8px;margin: 2px;background-color: #2196f3; border: solid 1px #06638d;" class="btnrj btn btn-primary" onclick="btnappr(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-account-check"></i><span class="tooltiptext">Approve / Rejoin</span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: #4c4c4c;border: solid 1px #075da1;" class="btnds btn btn-primary" onclick="btndis(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-account-off"></i><span class="tooltiptext">Dismiss</span></button><button type="button" style=" padding: 8px;margin: 2px;" class="btnhs btn btn-primary" onclick="btnhis(' + item[i].split('*')[10] + ')"><i class="mdi mdi-animation"></i><span class="tooltiptext">Service History</span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: #4caf50; border: solid 1px #028507;" class="btnwl btn btn-primary" onclick="btnwl(' + item[i].split('*')[10] + ')"><i class="mdi mdi-book-open-page-variant"></i><span class="tooltiptext">Wallet</span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: red;border: solid 1px #cb0505;" class="btndl btn btn-primary" onclick="btndel(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-delete-forever"></i><span class="tooltiptext">Remove </span></button><button type="button" style=" padding: 8px;margin: 2px;    background-color: #3f51b5;border: solid 1px #040f50;" class="btndl btn btn-primary" onclick="btnedt(this,' + item[i].split('*')[10] + ')"><i class="mdi mdi-border-color"></i><span class="tooltiptext">Edit</span></button></td> </tr>');
+
+            //                        }
+
+          }
+
+        });
+      }
+
+      $("#lnkclk").click(function (e) {
+        alert("ommnamahshivaya");
+      });
+
+    });
+
+    function myFunctionps() {
+
+      $.ajax({
+        type: "POST",
+        url: "home.aspx/chkvld",
+        data: '{name: "' + $("#txtphn").val() + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: OnSuccessp,
+        failure: function (response) {
+          alert(response.d);
+        }
+      });
+
+
+
+      function OnSuccessp(response) {
+
+        $("#txtml").val(response.d[0].split('*')[1]);
+        $("#txtlnd").val(response.d[0].split('*')[2]);
+        $("#txtml").attr("readonly", "true");
+        $("#txtlnd").attr("readonly", "true");
+
+        //$(".addsr").closest('form').find("input[type=text], textarea").val("");
+
+
+
+
+
+
+
+
+
+      }
+    }
+
+    function btnallot() {
+
+      if ($('#txtphn').val() == "") {
+        $('#txtphn').css("border", "2px dashed #e91e63");
+        return false;
+      }
+      if ($('#txtml').val() == "") {
+        $('#txtml').css("border", "2px dashed #e91e63");
+        return false;
+      }
+
+      if ($('#txtlnd').val() == "") {
+        $('#txtlnd').css("border", "2px dashed #e91e63");
+        return false;
+      }
+
+      if ($('#textare').val() == "") {
+        $('#textare').css("border", "2px dashed #e91e63");
+        return false;
+      }
+
+      if ($("#Select1 option:selected").text() == "TYPE OF APPRAISAL") {
+        $('#Select1').css("border", "2px dashed #e91e63");
+
+        return false;
+      }
+      // alert("working");
+      $.ajax({
+        type: "POST",
+        url: "home.aspx/postmsg",
+        data: '{name: "' + $("#txtml").val() + '",mob: "' + $("#txtphn").val() + '",email: "' + $("#txtlnd").val() +
+          '",typc: "' + $("#Select1 option:selected").text() + '",post:"' + $("#textare").val() + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: OnSuccessp,
+        failure: function (response) {
+          alert(response.d);
+        }
+      });
+
+
+
+      function OnSuccessp(response) {
+        if (response.d == "ok") {
+          $("#myModal").hide();
+          alert("Complain registered Successfully !");
+
+        } else {
+          $("#myModal").hide();
+          alert("You are not yet a customer to register complains !");
+        }
+        //$(".addsr").closest('form').find("input[type=text], textarea").val("");
+
+
+
+
+
+
+
+
+
+      }
+    }
+
+    function getUrlVars() {
+      var vars = [],
+        hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for (var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+      }
+      return vars;
+    }
+
+    function SearchText() {
+      $(".Country").autocomplete({
+        source: function (request, response) {
+          $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: "home.aspx/GetAutoCompleteData",
+            data: "{'prefix':'" + $('#txtsearch').val() + "'}",
+            dataType: "json",
+            success: function (data) {
+              if (data.d.length > 0) {
+                response($.map(data.d, function (item) {
+                  return {
+                    label: item.split('https://cityservcompany.com/')[0],
+                    val: item.split('https://cityservcompany.com/')[1]
+                  }
+                }));
+              } else {
+                response([{
+                  label: 'No Records Found',
+                  val: -1
+                }]);
+              }
+            },
+            error: function (result) {
+              alert("Error");
+            }
+          });
+        },
+        select: function (event, ui) {
+          if (ui.item.val == -1) {
+            return false;
+          }
+          $('#hfCountry').val(ui.item.val);
+
+        }
+      });
+    }
+  </script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNFcnyM8ZY8bjXepS-PC25RRU0FwWp04M&amp;libraries=places">
+  </script>
+
+  <style>
+    #spnaddr .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    #spnaddr .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+
+    #spnaddr:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+    .search-icon {
+      left: 128px;
+    }
+
+
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 99999999;
+      top: 0;
+      left: 0;
+      background-color: rgb(0, 0, 0);
+      background-color: rgb(178 4 178 / 90%);
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+
+    .overlay-content {
+      position: relative;
+      top: 10%;
+      width: 100%;
+      text-align: left;
+      margin-top: 30px;
+      padding-left: 10px;
+    }
+
+    .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #fff;
+      display: block;
+      transition: 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .overlay a:hover,
+    .overlay a:focus {
+      color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      font-size: 45px;
+    }
+
+
+    @media screen and (max-height: 450px) {
+      .overlay a {
+        font-size: 20px
+      }
+
+      .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+      }
+    }
+
+    #cover-spin {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.7);
+      z-index: 9999;
+      display: none;
+
+    }
+
+    @-webkit-keyframes spin {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #cover-spin::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 48%;
+      top: 40%;
+      width: 40px;
+      height: 40px;
+      border-style: solid;
+      border-color: black;
+      border-top-color: transparent;
+      border-width: 4px;
+      border-radius: 50%;
+      -webkit-animation: spin .8s linear infinite;
+      animation: spin .8s linear infinite;
+    }
+
+    .icon-images img {
+      padding: 12px !important;
+    }
+
+    .icon-images img {
+      width: 40% !important;
+    }
+
+    @media only screen and (max-width: 992px) {
+      .icon-images img {
+        width: 72% !important;
+      }
+    }
+
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 999999;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body onload="$('#cover-spin').show(3);setTimeout(function(){ $('#cover-spin').hide(); }, 3000);autowatch();">
+  <form method="post" action="https://cityservcompany.com/customer/home.aspx" id="form1">
+    <div class="aspNetHidden">
+      <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+        value="mPEk+PyLBIpzS8aTDkGVGT5CcsWU9NB20YmbauYqQrAp9KFR3DTQLRyu/b1zTJHpN1olJFKBgFd/BnXh+GjgqCEtfro07jCihGGj0SpdN+A=" />
+    </div>
+
+    <div class="aspNetHidden">
+
+      <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90C9DFE7" />
+      <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+        value="rVsf8ZD6URI453x6kGLW79eeKZ3JoyW9bkngEqgqHeltUhibxUel3CDjMn/iPHRiUs16PzJe4PKKh0rw/ztZ9LMVw0U+DW524txhYCYkQ925ym6RMKnVbdKSQGvcrkIaIBZHkZ2Km23+vCtekhCUqVUiAm0PUg1znsSS6E0vxt4=" />
+    </div>
+    <input type="hidden" name="hfCountry" id="hfCountry" />
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="#" id="myBtn"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;Home</a>
+        <a href="https://cityservcompany.com/partner/Signup.aspx"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Register as Partner</a>
+        <a href="About.html"><i class="fa fa-slack" aria-hidden="true"></i> &nbsp;About Cityserv</a>
+        <a href="mybookings.html"><i class="fa fa-first-order" aria-hidden="true"></i> &nbsp;My Bookings</a>
+        <a href="refer.html"><i class="fa fa-retweet" aria-hidden="true"></i>&nbsp;Refer and earn</a>
+        <a href="wallet.html"><i class="fa fa-google-wallet" aria-hidden="true"></i>&nbsp;My Wallet</a>
+        <a href="Settings.html"><i class="fa fa-cogs" aria-hidden="true"></i> &nbsp;Settings</a>
+        <a href="covid.html"><i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp;Safety & Covid 19</a>
+        <a href="rateus.html"><i class="fa fa-star-half-o" aria-hidden="true"></i> &nbsp;Rate Cityserv</a>
+        <a href="#" id="myBtn"><i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp;Help Center</a>
+        <a href="#" id="myBtn"><i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp;Logout</a>
+
+      </div>
+    </div>
+    <div id="mapholder"
+      style="height: 550px; display:none; width: 90% !important; margin:auto; position: relative; overflow: hidden;">
+    </div>
+
+
+    <div id="cover-spin"></div>
+
+    <section class="sticky-header">
+      <div class="top-nav">
+        <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <span class="res345" onclick="openNav()">&#9776; </span>
+        <input type="text" id="txtsearch" class="Country" placeholder="Search For Service And Package" /><button
+          type="button" style="background: none;
+    border: none;" id="btncart" class="kart_ic7"><img src="cart.png"><span id="spncnt">0</span></button>
+
+        <script>
+          var map = new google.maps.Map(document.getElementById('mapholder'), {
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });
+
+          var marker = null;
+          var options = {
+            enableHighAccuracy: true,
+            timeout: 60000,
+            maximumAge: 0
+          };
+
+          function autowatch() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(
+
+                //function showPosition(position) {
+                //    var lat = position.coords.latitude;
+                //    var lang = position.coords.longitude;
+                //    var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lang + "&key=AIzaSyDNFcnyM8ZY8bjXepS-PC25RRU0FwWp04M";
+
+                //    $.getJSON(url, function (data) {
+                //        //var address = data.results[0].formatted_address;
+                //        console.log(data)
+                //        //document.getElementById("address").value = address;
+                //        $("#spnaddr").html(data.results[0].formatted_address);
+
+                //    });
+                //},
+
+
+                //function getUserAddressBy(position) {
+                //    var xhttp = new XMLHttpRequest();
+                //    xhttp.onreadystatechange = function () {
+                //        if (this.readyState == 4 && this.status == 200) {
+                //            var address = JSON.parse(this.responseText)
+                //            $("#spnaddr").html("no rsult");
+                //            console.log(address.results[0].formatted_address)
+                //            //alert(address.results[0].formatted_address);
+                //        }
+                //    };
+                //    xhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyCs2LC0oBGE0N5RjfJRwVzLmLd_G21ADmw", true);
+                //    xhttp.send();
+                //},
+                function (position) {
+                  var latitude = position.coords.latitude;
+                  var longitude = position.coords.longitude;
+                  var accuracy = position.coords.accuracy;
+                  var coords = new google.maps.LatLng(latitude, longitude);
+                  var mapOptions = {
+                    zoom: 20,
+                    center: coords,
+                    streetViewControl: false,
+                    mapTypeControl: false,
+                    navigationControlOptions: {
+                      style: google.maps.NavigationControlStyle.SMALL
+                    },
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                  };
+
+
+
+                  map = new google.maps.Map(
+                    document.getElementById("mapholder"), mapOptions
+                  );
+                  var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map,
+                    title: "ok"
+                  });
+
+                  //google.maps.event.addListener(map, 'click', function (event) {
+                  //    var result = [event.latLng.lat(), event.latLng.lng()];
+                  //    transition(result);
+                  //});
+
+                  getUserAddressBy(position.coords.latitude, position.coords.longitude);
+                },
+
+                function error(msg) {
+                  alert('Please enable your GPS position future.');
+
+                }
+
+              );
+
+            } else {
+              alert("Geolocation API is not supported in your browser.");
+            }
+
+            // setTimeout(autowatch, 5000);
+          }
+
+          //function autoUpdate() {
+          //    //$("#MyPopup1").modal("show");
+          //    //alert("mmm");
+          //    navigator.geolocation.getCurrentPosition(function (position) {
+          //        var newPoint = new google.maps.LatLng(position.coords.latitude,
+          //                                              position.coords.longitude);
+          //        getUserAddressBy(position.coords.latitude, position.coords.longitude);
+          //        //var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&sensor=true";
+
+          //        //$.getJSON(url, function (data) {
+          //        //    var address = data.results[0].formatted_address;
+          //        //    alert(address);
+
+          //        //});
+          //        if (marker) {
+          //            // Marker already created - Move it
+          //            marker.setPosition(newPoint);
+          //        }
+          //        else {
+          //            // Marker does not exist - Create it
+          //            marker = new google.maps.Marker({
+          //                position: newPoint,
+          //                map: map
+          //            });
+          //        }
+
+          //        // Center the map on the new position
+          //        map.setCenter(newPoint);
+
+          //    });
+          function getUserAddressBy(lat, long) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (this.readyState == 4 && this.status == 200) {
+                var address = JSON.parse(this.responseText)
+                if (address.results[0].formatted_address.length > 30) {
+                  $("#spnaddr").html(address.results[0].formatted_address.substring(0, 30) + "....." +
+                    "<span class=\"tooltiptext\">" + address.results[0].formatted_address + "</span>");
+                  //$(".tootltiptext").html(address.results[0].formatted_address);
+
+                } else {
+                  $("#spnaddr").html(address.results[0].formatted_address);
+
+                }
+                console.log(address.results[0].formatted_address)
+                //alert(address.results[0].formatted_address);
+              }
+            };
+            xhttp.open("GET.html", "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + long +
+              "&key=AIzaSyDNFcnyM8ZY8bjXepS-PC25RRU0FwWp04M", true);
+            xhttp.send();
+          }
+          //    // Call the autoUpdate() function every 5 seconds
+          //    setTimeout(autoUpdate, 5000);
+          //}
+
+          //autoUpdate();
+        </script>
+        <script>
+          function openNav() {
+            document.getElementById("myNav").style.width = "60%";
+          }
+
+          function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+          }
+        </script>
+        <div class="top-menu">
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Register As A Professional</a></li>
+            <li><a href="cityserv-login.html">LogIn/SignUp</a></li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+    </section>
+    <div class="top-header">
+      <span class="top-Location">
+        <span class="mappin">
+          <i class="fa fa-map-marker" aria-hidden="true" style="font-weight: 600;"></i>
+        </span>
+        <abbr id="spnaddr">Plot no-746,maharshi college road,Bhubaneswar... </abbr>
+        <span>
+          <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </span>
+      </span>
+    </div>
+    <div class="owl-carousel owl-theme" id="big-slider">
+      <div class="item">
+        <img src="image/security-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="caritem"></div>
+      </div>
+      <div class="item">
+        <img src="image/drvr-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="caritem"></div>
+      </div>
+      <div class="item">
+        <img src="image/ac-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="caritem"></div>
+      </div>
+
+      <div class="item">
+        <img src="image/crpntr-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="caritem"></div>
+      </div>
+
+      <div class="item">
+        <img src="image/pluber-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="caritem"></div>
+      </div>
+
+      <div class="item">
+        <img src="image/appliance-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="caritem"></div>
+      </div>
+
+      <div class="item">
+        <img src="image/cleaning-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="caritem"></div>
+      </div>
+
+    </div>
+    <div class="owl-carousel owl-theme" id="mob-slider" style="height:154px;">
+      <div class="item">
+        <img src="image/security-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+      <div class="item">
+        <img src="image/drvr-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+      <div class="item">
+        <img src="image/ac-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="image/crpntr-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="image/pluber-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="image/appliance-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+      <div class="item">
+        <img src="image/cleaning-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+      <div class="item">
+        <img src="image/sln-f-women.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+      <div class="item">
+        <img src="image/sln-f-men.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+      <div class="item">
+        <img src="image/electrical-srvc-bnr.jpg" alt="Los Angeles" style="width:100%;">
+      </div>
+
+
+
+
+    </div>
+    <!-- carausal start -->
+    <!-- <div class="container-fluid" style="padding: 0;">  
+                <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
+    <!-- Indicators -->
+    <!-- <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
+                  </ol> -->
+
+    <!-- Wrapper for slides -->
+    <!-- <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="image/s1.png" alt="Los Angeles" style="width:100%;">
+                    </div>
+              
+                    <div class="item">
+                      <img src="image/s3.png" alt="Chicago" style="width:100%;">
+                    </div>
+                  
+                    <div class="item">
+                      <img src="image/s1.png" alt="New york" style="width:100%;">
+                    </div>
+                    <div class="item">
+                        <img src="image/s3.png" alt="New york" style="width:100%;">
+                      </div>
+                      <div class="item">
+                        <img src="image/s2.png" alt="New york" style="width:100%;">
+                      </div>
+                  </div> -->
+
+    <!-- Left and right controls -->
+    <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                  </a> -->
+    <!-- </div>
+              </div> -->
+
+    <section>
+      <!-- <div class="heading-cover" style="padding:13px 20px 0;">
+                      <div class="heading" >
+                        <h4>100% Protection Service</h4>
+                      </div>
+                      <div class="heading-img">
+                       <img src="image/cc-sild.png" alt="heading-img">
+                      </div> 
+                    </div>
+                    <div class="container-fluid protective-service">
+                        <h6>So now the time we must enlighten the covid 19 guidelines.</h6>
+                        <p><span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>Ongoing vaccination of service partner.</p>
+                        <p><span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>Use of gloves,mask and sanitisers.</p>
+                    </div> -->
+
+      <div class="icon-covers">
+        <div class="row" id="catdtl">
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images">
+              <a href="subcategory.aspx?cubd=53">
+                <img src="https://cityservcompany.com/images/Electriciancat.png" alt="icon1">
+                <p>Electrician</p>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images">
+              <a href="subcategory.aspx?cubd=54">
+                <img src="https://cityservcompany.com/images/54cat.png" alt="icon1">
+                <p>Plumber</p>
+              </a> </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images"><a href="subcategory.aspx?cubd=55"><img
+                  src="https://cityservcompany.com/images/55cat.png" alt="icon1">
+                <p>Salon For Men</p>
+              </a> </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images"><a href="subcategory.aspx?cubd=56"><img
+                  src="https://cityservcompany.com/images/Salon For Womencat.png" alt="icon1">
+                <p>Salon For Women</p>
+              </a> </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images"><a href="subcategory.aspx?cubd=57"><img
+                  src="https://cityservcompany.com/images/57cat.png" alt="icon1">
+                <p>Cleaning &amp; Disinfectant</p>
+              </a> </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images"><a href="subcategory.aspx?cubd=58"><img
+                  src="https://cityservcompany.com/images/Home Appliance Repairingcat.png" alt="icon1">
+                <p>Home Appliance Repair</p>
+              </a> </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images"><a href="subcategory.aspx?cubd=59"><img
+                  src="https://cityservcompany.com/images/AC Servicecat.png" alt="icon1">
+                <p>AC Service</p>
+              </a> </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images"><a href="subcategory.aspx?cubd=60"><img
+                  src="https://cityservcompany.com/images/Drivercat.png" alt="icon1">
+                <p>Driver</p>
+              </a> </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images">
+              <a href="carpenter.html"><img src="image/icons/carpainter.png" alt="icon1">
+                <p>Carpenter</p>
+              </a>
+
+            </div>
+          </div>
+          <div class="col-lg-3 col-3 main-icon4">
+            <div class="icon-images">
+              <a href="#"><img src="image/icons/security.png" alt="icon1">
+                <p>Security Guard</p>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid protective-service">
+        <h6>So now the time we must enlighten the covid 19 guidelines.</h6>
+        <p><span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>Ongoing vaccination of service partner.
+        </p>
+        <p><span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>Use of gloves,mask and sanitisers.</p>
+      </div>
+    </section>
+    <section>
+      <img src="image/offer1.png" alt="offer-banner" width="100%">
+    </section>
+
+    <section>
+      <div class="best-offers">
+        <h4>Best Offers</h4>
+        <h6>Hygienic & Single use products</h6>
+      </div>
+
+      <div>
+        <div class="service-cover">
+          <div class="service-img">
+            <a href="women.html"><img src="image/salon-at-home.png" alt="image/salon-at-home.png">
+              <h4>Salon At Home</h4>
+              <p>Flat 200 Off</p>
+            </a>
+          </div>
+          <div class="service-img">
+            <a href="cleaning.html"> <img src="image/bathroom-cleaning.png" alt="image/bathroom-cleaning.png">
+              <h4>Bathroom Cleaning</h4>
+              <p>Upto 40% Off</p>
+            </a>
+          </div>
+        </div>
+        <div class="service-cover">
+          <div class="service-img">
+            <a href="cleaning.html"><img src="image/sofa-and-carpet-cealing.png"
+                alt="image/sofa-and-carpet-cealing.png">
+              <h4>Sofa & Carpet Cleaning</h4>
+              <p>Upto 30% Off</p>
+            </a>
+          </div>
+          <div class="service-img">
+            <a href="saloonMen.html"><img src="image/salon-for-men.png" alt="image/salon-for-men.png">
+              <h4>Salon For Men</h4>
+              <p>Flat 100 Off</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-viewall"><button>View All Services</button></div>
+    </section>
+    <section>
+      <a href="apliance.html"><img src="image/appliance-banner.png" alt="offer-banner" width="100%"></a>
+    </section>
+    <section>
+      <div class="container mt-5">
+        <div class="row ">
+          <div class="heading-service">
+            <h4>Appliance</h4>
+            <p>Service,repair,Installation & Uninstallation</p>
+          </div>
+          <div class="service-cover">
+            <div class="service-img service-img2">
+              <a href="ac.html">
+                <img src="image/ac.png" alt="image/salon-at-home.png">
+                <h4>AC Service And Repair</h4>
+                <p>UP To 30% Off</p>
+              </a>
+            </div>
+            <div class="service-img service-img2">
+              <a href="apliance.html">
+                <img src="image/refrigirator.png" alt="image/bathroom-cleaning.png">
+                <h4>Refrigirator Repair</h4>
+              </a>
+
+            </div>
+          </div>
+          <div class="service-cover">
+            <div class="service-img service-img2">
+              <a href="apliance.html">
+                <img src="image/aquaguard.png" alt="image/sofa-and-carpet-cealing.png">
+                <h4>RO Service And Repair</h4>
+              </a>
+
+            </div>
+            <div class="service-img service-img2">
+              <a href="apliance.html">
+                <img src="image/wash.png" alt="image/salon-for-men.png">
+                <h4>Washing Machine Repair</h4>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-viewall"><button>View All Repair Services</button></div>
+      </div>
+      </div>
+
+    </section>
+    <section>
+      <a href="women.html"><img src="image/special-services.png" alt="offer-banner" width="100%"></a>
+      <div class="btn-viewall"><button>View All Special Services</button></div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row ">
+          <div class="heading-service">
+            <h4>Customer Safety Is Our First Priority</h4>
+            <p>Customers Review</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--  owl caraosal start -->
+    <div class="container-fluid" style="padding: 0;">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner bottom-testimonial">
+          <div class="item active">
+            <div class="testimonial-padding">
+              <div class="text-img-cover">
+                <div class="testi-img"><img src="image/testimonial.png" alt="Chicago" style="width:100%;"></div>
+                <div class="testi-head">
+                  <h4>@AdityaR Patra <span><i class="fa fa-twitter" style="color:dodgerblue;"
+                        aria-hidden="true"></i></span></h4>
+                </div>
+              </div>
+              <div class="testi-text">
+                <p>Briliant Service Probider & also Great Problem solving workers.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="item">
+            <div class="testimonial-padding">
+              <div class="text-img-cover">
+                <div class="testi-img"><img src="image/testimonial.png" alt="Chicago" style="width:100%;"></div>
+                <div class="testi-head">
+                  <h4>@AdityaR Patra <span><i class="fa fa-twitter" style="color:dodgerblue;"
+                        aria-hidden="true"></i></span></h4>
+                </div>
+              </div>
+              <div class="testi-text">
+                <p>Briliant Service Probider & also Great Problem solving workers.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="testimonial-padding">
+              <div class="text-img-cover">
+                <div class="testi-img"><img src="image/testimonial.png" alt="Chicago" style="width:100%;"></div>
+                <div class="testi-head">
+                  <h4>@AdityaR Patra <span><i class="fa fa-twitter" style="color:dodgerblue;"
+                        aria-hidden="true"></i></span></h4>
+                </div>
+              </div>
+              <div class="testi-text">
+                <p>Briliant Service Probider & also Great Problem solving workers.</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-padding">
+              <div class="text-img-cover">
+                <div class="testi-img"><img src="image/testimonial.png" alt="Chicago" style="width:100%;"></div>
+                <div class="testi-head">
+                  <h4>@AdityaR Patra <span><i class="fa fa-twitter" style="color:dodgerblue;"
+                        aria-hidden="true"></i></span></h4>
+                </div>
+              </div>
+              <div class="testi-text">
+                <p>Briliant Service Probider & also Great Problem solving workers.</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonial-padding">
+              <div class="text-img-cover">
+                <div class="testi-img"><img src="image/testimonial.png" alt="Chicago" style="width:100%;"></div>
+                <div class="testi-head">
+                  <h4>@AdityaR Patra <span><i class="fa fa-twitter" style="color:dodgerblue;"
+                        aria-hidden="true"></i></span></h4>
+                </div>
+              </div>
+              <div class="testi-text">
+                <p>Briliant Service Probider & also Great Problem solving workers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a> -->
+      </div>
+    </div>
+
+    <section>
+      <div class="footer-menu">
+        <ul>
+          <li>
+            <a class="menu-active" href="#">
+              <p class="menu-icon menu-active"><i class="fa fa-home" aria-hidden="true"></i></p>
+              <span class="menu-active">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <p class="menu-icon"><i class="fa fa-file-text" aria-hidden="true"></i></p>
+              <span>Booking</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="menu-icon"><i class="fa fa-shield" aria-hidden="true"></i></div>
+              <span>CC Shield</span>
+            </a>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <p class="menu-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></p>
+              <span>Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="col-lg-3" style="float:left;padding-left: 15px; margin-top:5px; width:340px;">
+          <label>Enter your Registered Mobile Number :</label>
+          <input name="txtphn" type="text" id="txtphn" onfocusout="myFunctionps()" style="width:80%;"
+            class="form-control form-control-lg" /></div>
+        <div class="col-lg-3" style="float:left;padding-left: 15px; margin-top:5px; width:340px;">
+          <label>Enter your Name :</label>
+          <input type="text" id="txtml" style="width:80%;" class="form-control form-control-lg" /></div>
+
+        <div class="col-lg-3" style="float:left; margin-top:5px; padding-left: 15px; width:340px;">
+          <label>Address :</label>
+          <input type="text" id="txtlnd" name="ship-address" required autocomplete="off" style="width:80%;"
+            class="form-control form-control-lg" /></div>
+        <div class="col-lg-3" style="float:left;padding-left: 15px; margin-top:5px; width:340px;">
+          <label>Type Of Complain :</label>
+          <select name="Select1" id="Select1" class="form-control" style="width: 80%; margin:auto;
+    float: left;
+    /* position: relative; */
+    margin-top:0px;
+    border: solid 2px #b66dff;
+    color: black;">
+            <option selected="selected" value="0">TYPE OF APPRAISAL</option>
+            <option value="1">Pending services inferred</option>
+            <option value="2">Transactions declined</option>
+            <option value="3">Behaviour/Conduct By Servicemen</option>
+            <option value="4">Payments Blocked</option>
+            <option value="5">Refunds</option>
+          </select></div>
+        <div style="width:100%;padding: 10px;">
+          <label for="Query" style="color:black;padding-top:10px;float:left;color:black;">Mention your complain in
+            details</label><br>
+          <textarea id="textare" placeholder="Type in details here"
+            style="border: solid 2px #b66dff;width:100%;height:150px;float:left;"></textarea><br>
+        </div>
+        <button type="button" onclick="btnallot()" style="margin:10px; margin-top:15px; float:left;"
+          class="alot btn btn-primary">Post Now</button>
+
+      </div>
+
+    </div>
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal 
+      btn.onclick = function () {
+        modal.style.display = "block";
+        document.getElementById("myNav").style.width = "0%";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+    <script>
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        nav: true,
+        autoplay: true,
+        lazyLoad: true,
+        video: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 1
+          },
+          960: {
+            items: 1
+          },
+          1200: {
+            items: 1
+          }
+        }
+      });
+    </script>
+    <script>
+      $('#slider').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: {
+            items: 3
+          },
+          600: {
+            items: 3
+          },
+          1000: {
+            items: 5
+          }
+        }
+      })
+    </script>
+
+    </script>
+    <script src="../../cdn.jsdelivr.net/npm/bootstrap%405.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+</body>
+
+<!-- Mirrored from cityservcompany.com/customer/home.aspx by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Apr 2022 05:39:00 GMT -->
+
+</html>
